@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sphere-login</title>
+    <link rel="stylesheet" href="./login_style.css">
+    <script
+      src="https://kit.fontawesome.com/6008c27e6e.js"
+      crossorigin="anonymous"
+    ></script>
+
+</head>
+<body>
+    <header>
+        <nav class="navigation">
+
+			<!-- Logo -->
+			<div class="logo">
+				<img class="image-logo" src="./images.png" alt="Sphere-logo">
+			</div>
+			
+			<!-- Navigation -->
+			<ul class="menu-list">
+				<li>
+                    <div class="dropdown">
+                    <button class="dropbtn">My Account
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="./login_page.html">Login</a>
+                      <a href="#">Register</a>
+                      
+                    </div></li>
+				<li><a href="#">Whishlist</a></li>
+				<li><a href="#">Shopping Cart</a></li>
+				<li><a href="#portfolio">Checkout</a></li>
+				
+			</ul>
+
+			<div class="humbarger">
+				<div class="bar"></div>
+				<div class="bar2 bar"></div>
+				<div class="bar"></div>
+			</div>
+		</nav>
+    
+
+    </header>
+    <section>
+        <div class="body-container">
+            <div class="container">
+              
+              <div class="form-wrapper">
+                <img src="" alt="" />
+                <h1 class="heading">Login/Register</h1>
+                <div class="form-box">
+                  <form id="contact-form" method="POST">
+                    <!--For the email label-->
+                    <div class="form-group">
+                      <label class="form-labels" for="username">Username</label>
+                      <input
+                        class="form-input"
+                        type="text"
+                        name="user_email"
+                        id="auth_username"
+                        placeholder="enter username"
+                        required
+                      />
+                    </div>
+                    <!--For the contact label-->
+                    <div class="form-group">
+                      <label class="form-labels" for="contact">Password</label>
+                      <input
+                        class="form-input"
+                        type="password"
+                        name="password"
+                        id="auth_password"
+                        placeholder="enter your password"
+                        required
+                      />
+                    </div>
+      
+                    <!-- The submit button-->
+                    <div class="buttons-flex">
+                      <button
+                        class="button"
+                        onclick="event.preventDefault(), login(), userInfo()"
+                        type="submit"
+                      >
+                        login
+                      </button>
+      
+                      <a class="register-link" href="./register.html">register</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section> 
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sphere-register</title>
+    <link rel="stylesheet" href="./registration_styles.css">
+    <script src="./register.js"></script>
+</head>
+<body>
+    <header>
+		<nav class="navigation">
+
+			<!-- Logo -->
+			<div class="logo">
+				<img class="image-logo" src="./images.png" alt="Sphere-logo">
+			</div>
+			
+			<!-- Navigation -->
+			<ul class="menu-list">
+				<li>
+                    <div class="dropdown">
+                    <button class="dropbtn">My Account
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="./login_page.html">Login</a>
+                      <a href="#">Register</a>
+                      
+                    </div></li>
+				<li><a href="#">Whishlist</a></li>
+				<li><a href="#">Shopping Cart</a></li>
+				<li><a href="#portfolio">Checkout</a></li>
+				
+			</ul>
+
+			<div class="humbarger">
+				<div class="bar"></div>
+				<div class="bar2 bar"></div>
+				<div class="bar"></div>
+			</div>
+		</nav>
+    
+    <!-- ==== Intro Section Start ==== -->
+		
+	</header>
+    <h3>Please enter login dedtails</h3>
+    <form id="contact-form" method="POST">
+      <!--For the email label-->
+      <div class="form-group">
+        <label class="from-labels" for="email">First Name</label>
+        <input
+          class="form-input"
+          type="text"
+          name="first_name"
+          id="first_name"
+          placeholder="Please enter first name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="from-labels" for="email">Last Name</label>
+        <input
+          class="form-input"
+          type="text"
+          name="last_name"
+          id="last_name"
+          placeholder="Please enter last name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="from-labels" for="email">User name</label>
+        <input
+          class="form-input"
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Please enter username"
+          required
+        />
+      </div>
+
+      <div class="form-group"></div>
+      <!--For the contact label-->
+      <div class="form-group">
+        <label class="from-labels" for="contact">Password</label>
+        <input
+          class="form-input"
+          type="password"
+          name="password"
+          id="password"
+          placeholder="enter your password"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="from-labels" for="email">Physical Address</label>
+        <input
+          class="form-input"
+          type="text"
+          name="address"
+          id="address"
+          placeholder="Please enter address"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label class="from-labels" for="email">Phone Number</label>
+        <input
+          class="form-input"
+          type="tel"
+          name="phone_number"
+          id="phone_number"
+          placeholder="073 123 45678"
+          required
+        />
+      </div>
+      <div class="form-group"></div>
+      <!--For the contact label-->
+      <div class="form-group">
+        <label class="from-labels" for="contact">Email</label>
+        <input
+          class="form-input"
+          type="email"
+          name="user_email"
+          id="user_email"
+          placeholder="example@myemail.com"
+          required
+        />
+      </div>
+
+      <!-- The submit button-->
+
+      <button
+        class="button"
+        onclick="event.preventDefault(), register()"
+        type="submit"
+      >
+        Register
+      </button>
+    </form>
+   
+  </body>
+    
+</body>
+</html>

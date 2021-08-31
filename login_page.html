@@ -10,6 +10,7 @@
       src="https://kit.fontawesome.com/6008c27e6e.js"
       crossorigin="anonymous"
     ></script>
+    <script src="./login.js"></script>
 
 </head>
 <body>
@@ -30,7 +31,7 @@
                     </button>
                     <div class="dropdown-content">
                       <a href="./login_page.html">Login</a>
-                      <a href="#">Register</a>
+                      <a href="./register.html">Register</a>
                       
                     </div></li>
 				<li><a href="#">Whishlist</a></li>
@@ -56,7 +57,7 @@
                 <img src="" alt="" />
                 <h1 class="heading">Login/Register</h1>
                 <div class="form-box">
-                  <form id="contact-form" method="POST">
+                  <form onsubmit="event.preventDefault(); login()" id="contact-form" >
                     <!--For the email label-->
                     <div class="form-group">
                       <label class="form-labels" for="username">Username</label>
@@ -86,7 +87,7 @@
                     <div class="buttons-flex">
                       <button
                         class="button"
-                        onclick="event.preventDefault(), login(), userInfo()"
+                        
                         type="submit"
                       >
                         login

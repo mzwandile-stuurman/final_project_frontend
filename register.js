@@ -19,7 +19,7 @@ function register() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        if (data["status_code"] == 200) {
+        if (data["status_code"] == 201) {
           alert("Registered successfully!, please log in.");
           window.location.href = "./index.html";
         } else {

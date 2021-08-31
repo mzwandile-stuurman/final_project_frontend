@@ -35,7 +35,3 @@ function getData() {
   }
 
   make_products();
-
-
-  
-  

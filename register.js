@@ -21,7 +21,7 @@ function register() {
         console.log(data);
         if (data["status_code"] == 201) {
           alert("Registered successfully!, please log in.");
-          window.location.href = "./index.html";
+          window.location.href = "./login_page.html";
         } else {
           alert("Please enter correct information");
           

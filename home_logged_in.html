@@ -21,16 +21,17 @@
 			<ul class="menu-list">
 				<li>
                     <div class="dropdown">
-                    <button class="dropbtn">My Account
+                    <button class="dropbtn">
                       <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
-                      <a href="./login_page.html">Login</a>
-                      <a href="./register.html">Register</a>
+                      <a href="./acount_info.html">Account info</a>
+                      <a href="./register.html">Orders</a>
+					  <a href="./register.html">Returns& exchange</a>
                       
                     </div></li>
 				<li><a href="#">Whishlist</a></li>
-				<li><a href="#">Shopping Cart</a></li>
+				<li><a href="#" onclick="toggleCart()" id="cart-button">Shopping Cart</a></li>
 				<li><a href="#portfolio">Checkout</a></li>
 				
 			</ul>
@@ -47,6 +48,7 @@
 	</header>
 	<section>
 		<div id="products-container"></div>
+		<div id="cart"><p>You have no items in the cart</p></div>
 	</section>
 
     

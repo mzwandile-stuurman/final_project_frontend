@@ -12,40 +12,30 @@ function getUser() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        show_user(data)
+        let product_container = document.querySelector("#user-info");
+        product_container.innerHTML = "";
+      
+          product_container.innerHTML += `
+  
+            <div class = "products">
+              <div class = "product-content"> 
+                <p class = "product-title">First Name: ${data.data.first_name}</p>
+                <p class = "product-description">Last Name: ${data.data.last_name}</p>
+                <p class = "product-price">Username: ${data.data.username} </p>
+                <p class = "user_phone"> Password: ${data.data.password}</p>
+                <p class = "user_phone"> Phone Number: ${data.data.phone_number}</p>
+                <p class = "user_phone"> email address: ${data.data.user_email}</p>
+                
+
+                
+              </div>
+                
+            </div>
+           `;
         
       });
 }
 getUser();
-
-function show_user(users) {
-
-    let product_container = document.querySelector("#user_info");
-    product_container.innerHTML = "";
-      
-    users.data.forEach((user) => {
-
-  
-        product_container.innerHTML += `
-
-  
-        <div class = "products">
-            <img src="${user.image}" class = "product-image">
-            <div class = "product-content"> 
-                <h4 class = "product-title"> ${user.product_name}</h4>
-                <p class = "product-description"> ${user.brand}</p>
-                <p class = "product-price">R${user.price} </p>
-                <button onclick="addToCart(${user.id})">Add to Cart</button>
-                
-            </div>
-                
-        </div>
-        `;
-    });
-}
-make_products();
-  
-
 
 
 

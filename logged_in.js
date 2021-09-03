@@ -1,8 +1,8 @@
 let products = [];
 let cart = [];
 
-let user_Name = document.querySelector(".dropbtn");
-user_Name.innerHTML = JSON.stringify(localStorage.getItem("username"));
+
+
 
 function getData() {
     fetch("https://still-brushlands-23193.herokuapp.com/product/")
@@ -47,6 +47,7 @@ function addToCart(id) {
   });
   
   cart.push(product);
+  localStorage["cart"] = JSON.stringify(cart);
   renderCart(cart);
   console.log(id);
   
@@ -98,3 +99,37 @@ function removeItem(id) {
   );
   renderCart(cart);
 }
+
+function getUser() {
+  fetch("https://still-brushlands-23193.herokuapp.com/users/", {
+    method: "PATCH",
+    body: JSON.stringify({
+      username: localStorage.getItem("username"),
+      password: localStorage.getItem("password"),
+    }),
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      let product_container = document.querySelector(".dropbtn");
+      product_container.innerHTML = "";
+    
+        product_container.innerHTML += `
+
+          <div class = "products">
+            <div class = "product-content"> 
+              <p class = "product-title">First Name: ${data.data.first_name}</p>
+              
+            </div>
+              
+          </div>
+         `;
+      
+    });
+}
+getUser();
+
+// function to show user name

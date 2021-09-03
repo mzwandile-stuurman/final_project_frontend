@@ -246,10 +246,13 @@
   }
   
   #cart-button {
-    
+    position: fixed;
     right: 5%;
-    top: 10%;
+    top: 17%;
     z-index: 10;
+    text-decoration: none;
+    color: #b1d4e0;
+    text-transform: uppercase;
   }
   
   #cart.active {

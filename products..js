@@ -1,5 +1,6 @@
 let products = [];
 let cart = [];
+localStorage.setItem("cart", JSON.stringify(cart));
 
 // Function to get all data
 function getData() {
@@ -36,9 +37,56 @@ function make_products(products) {
           </div>
           `;
       });
-  }
+}
+make_products();
 
-  make_products();
+// function to add to cart
+function addToCart(id) {
+  console.log(products.data);
+  let product = products.data.find((item) => {
+    return item.prod_id == id;
+  });
+  
+  cart.push(product);
+  renderCart(cart);
+  console.log(id);
+  
+}
+
+// function to show items in the cart
+function renderCart(cartItems) {
+  let cartContainer = document.querySelector("#cart");
+  cartContainer.innerHTML = "";
+  if (cartItems.length > 0) {
+    cartItems.map((cartItem) => {
+      cartContainer.innerHTML += `
+      <div class = "products">
+            <img src="${cartItem.image}" class = "product-image">
+            <div class = "product-content"> 
+                <h4 class = "product-title"> ${cartItem.product_name}</h4>
+                <p class = "product-description"> ${cartItem.brand}</p>
+                <p class = "product-price">R${cartItem.price} </p>
+                <button class ="revome_cart" onclick="removeItem(${cartItems.prod_id})">Remove item</button>
+            </div>
+            
+        </div>
+      
+      
+      `;
+    });
+    let totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+    cartContainer.innerHTML += `<h3> Your total is: ${totalPrice} </h3>`;
+  } else {
+    cartContainer.innerHTML = "<h2> No items in cart</h2>";
+  }
+}
+
+function toggleCart() {
+  document.querySelector("#cart").classList.toggle("active");
+}
+
+
+
 
 
   

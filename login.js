@@ -16,6 +16,7 @@ function login() {
         console.log(data);
         if (data["description"] == "Invalid credentials") {
           alert("invalid cedentials")
+          window.location.href = "./index.html";
           
           
         } else {

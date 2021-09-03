@@ -1,6 +1,7 @@
 let products = [];
 let cart = [];
-localStorage.setItem("cart", JSON.stringify(cart));
+let storedCartitems = JSON.parse(localStorage.getItem("cart") || "[]");
+
 
 // Function to get all data
 function getData() {
@@ -30,7 +31,7 @@ function make_products(products) {
                   <h4 class = "product-title"> ${product.product_name}</h4>
                   <p class = "product-description"> ${product.brand}</p>
                   <p class = "product-price">R${product.price} </p>
-                  <button onclick="addToCart(${product.id})">Add to Cart</button>
+                  <button onclick="addToCart(${product.prod_id})">Add to Cart</button>
               
               </div>
               
@@ -41,15 +42,16 @@ function make_products(products) {
 make_products();
 
 // function to add to cart
-function addToCart(id) {
+function addToCart(prod_id) {
   console.log(products.data);
   let product = products.data.find((item) => {
-    return item.prod_id == id;
+    return item.prod_id == prod_id;
   });
   
   cart.push(product);
   renderCart(cart);
-  console.log(id);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  console.log(prod_id);
   
 }
 
@@ -85,7 +87,14 @@ function toggleCart() {
   document.querySelector("#cart").classList.toggle("active");
 }
 
+// get stored cart items from local storage
 
+function showCart(){
+  
+  console.log(storedCartitems);
+
+}
+showCart();
 
 
 

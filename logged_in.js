@@ -1,5 +1,6 @@
 let products = [];
 let cart = [];
+let storedCartitems = JSON.parse(localStorage.getItem("cart") || "[]");
 
 
 
@@ -47,8 +48,8 @@ function addToCart(id) {
   });
   
   cart.push(product);
-  localStorage["cart"] = JSON.stringify(cart);
-  renderCart(cart);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart(storedCartitems);
   console.log(id);
   
 }

@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sphere-home</title>
     <link rel="stylesheet" href="./home.css">
-    <script src="./products..js"></script>
+    
     <script
       src="https://kit.fontawesome.com/6008c27e6e.js"
       crossorigin="anonymous"
     ></script>
     <script src="./outer.js"></script>
+    
 </head>
 <body>
+ 
     <header>
 		<nav class="navigation">
 
@@ -34,11 +36,11 @@
                       <a href="./register.html">Register</a>
                       
                     </div></li>
-				<li><a href="#">Whishlist</a></li>
+				<li><a href="./cart.html"> <i class="fas fa-shopping-cart"></i> cart</a></li>
 				<li><a href="./checkoutpage.html">Checkout</a></li>
 				
 			</ul>
-      <div><a href="#" onclick="toggleCart()" id="cart-button"><span><i class="fas fa-shopping-cart"></i></span> Cart</a></div>
+      
 			<div class="humbarger">
 				<div class="bar"></div>
 				<div class="bar2 bar"></div>
@@ -49,12 +51,13 @@
     <!-- ==== Intro Section Start ==== -->
 		
 	</header>
-    <section>
-        <div id="products-container"></div>
-        <div id="cart"><p>You have no items in the cart</p></div>
-    </section>
-
-    
+  <section>
+      <div id="products-container"></div>
+      <div id="cart"><p>You have no items in the cart</p></div>
+      <script src="./products..js"></script>
+  </section>
+ 
+  
     
 </body>
 </html>

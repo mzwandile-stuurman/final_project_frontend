@@ -33,7 +33,7 @@ function toggleCart() {
     document.querySelector("#cart").classList.toggle("active");
 }
 
-// remove from cart
+// remove from cart\
 function removeItem(id) {
     storedCartitems = storedCartitems.filter(item => item.prod_id != id)
     renderCart(storedCartitems);

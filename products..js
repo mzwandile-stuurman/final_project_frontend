@@ -98,8 +98,8 @@ function searchForProducts() {
   let searchedProducts = products.data.filter((product) =>
     product.product_name.toLowerCase().startsWith(searchTerm.toLowerCase())
   );
-  console.log(Object.entries(searchedProducts));
-  make_products(Object.entries(searchForProducts));
+  console.log(searchedProducts);
+  make_products(searchedProducts);
 }
 
 

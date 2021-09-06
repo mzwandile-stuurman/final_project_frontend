@@ -31,8 +31,9 @@
                     <div class="dropdown-content">
 
                       	<a href="./acount_info.html">Account info</a>
-                      	<a href="./register.html">Orders</a>
-					  	<a href="./register.html">Returns& exchange</a>
+                      	<a href="./orders.html">Orders</a>
+					  	<a href="./contact_page.html">Contact us</a>
+						<a href="./index.html">log out</a>
                       
                     </div></li>
 				<li><a href="./cart.html"> <span><i class="fas fa-shopping-cart"></i></span> CART</a></li>
@@ -49,9 +50,14 @@
 		</nav>
     
     <!-- ==== Intro Section Start ==== -->
-		
 	</header>
 	<section>
+
+		<input id="searchTerm" type="text" placeholder="Search.." />
+      	<button class="search-btn" onclick="searchForProducts()" type="submit">
+
+        	<i class="fas fa-search-location"></i>
+      	</button>
 		<div id="products-container"></div>
 		<div id="cart"><p>You have no items in the cart</p></div>
 	</section>

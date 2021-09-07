@@ -1,10 +1,6 @@
 function getUser() {
-    fetch("https://still-brushlands-23193.herokuapp.com/users/", {
-      method: "PATCH",
-      body: JSON.stringify({
-        username: localStorage.getItem("username"),
-        password: localStorage.getItem("password"),
-      }),
+    fetch("https://still-brushlands-23193.herokuapp.com/user-info/"+`${localStorage.getItem("password")}`, {
+      method: "GET",
       headers: {
         "Content-type": "application/json",
       },
@@ -12,7 +8,7 @@ function getUser() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        localStorage.setItem("user_id",`${data.data.user_id}`)
+        localStorage.setItem("user_id",`${data.user_id}`)
         
         let product_container = document.querySelector("#user-info");
         product_container.innerHTML = "";
@@ -49,7 +45,7 @@ function getUser() {
            `;
         
       });
-      console.log(data.data.user_id);
+     
 }
 getUser();
 
@@ -124,9 +120,8 @@ function updateUsername(){
 }
 
 function updatePassword(){
-  fetch("https://still-brushlands-23193.herokuapp.com/update-user/"+`${localStorage.getItem("user_id")}`, {
-      method: "PUT",
-      
+  fetch("https://still-brushlands-23193.herokuapp.com/update-user/"+`${localStorage.getItem("user_id")}/`, {
+      method: "PUT", 
       headers: {
         "Content-type": "application/json",
       },
@@ -157,6 +152,11 @@ function updateName(){
       console.log(data);
     
     });
+}
+
+function logOut(){
+  localStorage.clear()
+  window.location.href = "./index.html";
 }
 
 

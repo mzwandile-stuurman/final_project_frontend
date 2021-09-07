@@ -14,3 +14,8 @@ $(document).ready(function(){
 });
 
 });
+
+function logOut(){
+  localStorage.clear()
+  window.location.href = "./index.html";
+}

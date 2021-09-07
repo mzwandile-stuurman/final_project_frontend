@@ -6,8 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sphere-user</title>
     <script src="./user_information.js"></script>
+    <link rel="stylesheet" href="./account-info-style.css">
 </head>
 <body>
+    <header>
+		<nav class="navigation">
+
+			<!-- Logo -->
+			<div class="logo">
+				<a href="./home_logged_in.html"></a><img class="image-logo" src="./images.png" alt="Sphere-logo">
+			</div>
+			
+			<!-- Navigation -->
+			<ul class="menu-list">
+				<li>
+                    <div class="dropdown">
+                    <button class="dropbtn">Account
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+
+                      	<a href="./acount_info.html">Account info</a>
+                      	<a href="./orders.html">Orders</a>
+					  	<a href="./contact_page.html">Contact us</a>
+						<a href="./index.html" onclick="logOut()">log out</a>
+                      
+                    </div></li>
+				<li><a href="./cart.html"> <span><i class="fas fa-shopping-cart"></i></span> CART</a></li>
+				<li><a href="./checkoutpage.html">Checkout</a></li>
+				
+			</ul>
+			
+
+			<div class="humbarger">
+				<div class="bar"></div>
+				<div class="bar2 bar"></div>
+				<div class="bar"></div>
+			</div>
+		</nav>
+    
+    <!-- ==== Intro Section Start ==== -->
+	</header>
     <div id="user-info"></div>
     <div></div>
     

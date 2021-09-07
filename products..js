@@ -9,8 +9,8 @@ function getData() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        products = data;
-        make_products(data);
+        products = data.data;
+        make_products(data.data);
       });
   }
   
@@ -21,7 +21,7 @@ function make_products(products) {
   let product_container = document.querySelector("#products-container");
   product_container.innerHTML = "";
     
-  products.data.forEach((product) => {
+  products.forEach((product) => {
 
     product_container.innerHTML += `
 
@@ -44,7 +44,7 @@ make_products();
 // function to add to cart
 function addToCart(prod_id) {
   console.log(products.data);
-  let product = products.data.find((item) => {
+  let product = products.find((item) => {
     return item.prod_id == prod_id;
   });
   
@@ -102,6 +102,42 @@ function searchForProducts() {
   make_products(searchedProducts);
 }
 
+function logOut(){
+  localStorage.clear()
+  window.location.href = "./index.html";
+}
+
+// seaarch for jeans
+function filteredProducts() {
+  let searchTerm = "jean";
+  console.log(searchTerm);
+  console.log(products);
+  let searchedProducts = products.filter((product) => 
+    product.product_type.toLowerCase().includes(searchTerm.toLowerCase())
+  
+  );
+  console.log(searchedProducts);
+  make_products(searchedProducts);
+
+}
+// function to search for shoes
+function filteredShoes() {
+  let searchTerm = "shoe";
+  console.log(searchTerm);
+  console.log(products);
+  let searchedProducts = products.filter((product) => 
+    product.product_type.toLowerCase().includes(searchTerm.toLowerCase())
+  
+  );
+  console.log(searchedProducts);
+  make_products(searchedProducts);
+
+}
+
+// function to refresh page
+function showAll(){
+  location.reload();
+}
 
 
 

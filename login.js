@@ -32,5 +32,9 @@ function login() {
     var inputPassword= document.getElementById("auth_password");
      localStorage.setItem("password", inputPassword.value);
      
+  }
 
+  function logOut(){
+    localStorage.clear()
+    window.location.href = "./index.html";
   }

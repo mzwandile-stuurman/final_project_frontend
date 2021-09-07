@@ -39,4 +39,12 @@ function removeItem(id) {
     renderCart(storedCartitems);
     localStorage.setItem('cart', JSON.stringify(storedCartitems))
 }
+
+function logOut(){
+  localStorage.clear()
+  window.location.href = "./index.html";
+}
+
+
+  
   

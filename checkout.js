@@ -1,12 +1,15 @@
 let storedCartitems = JSON.parse(localStorage.getItem("cart") || "[]");
 function showCart(){
-    console.log(storedCartitems);
-    let product_container = document.querySelector("#cart-items");
+
+    if (storedCartitems.length > 0) {
+
+        console.log(storedCartitems);
+        let product_container = document.querySelector("#cart-items");
     
       
-    storedCartitems.forEach((product) => {
+        storedCartitems.forEach((product) => {
   
-      product_container.innerHTML += `
+        product_container.innerHTML += `
   
             <div class = "products">
                 <img src="${product.image}" class = "product-image">
@@ -21,9 +24,12 @@ function showCart(){
             </div>
             `;
         });
-  
-  }
-  showCart();
+    }else{
+        product_container.innerHTML = "<h2> No items in cart</h2>";
+
+    }
+}
+showCart();
 
 function logOut(){
     localStorage.clear()

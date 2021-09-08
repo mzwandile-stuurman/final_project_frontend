@@ -8,7 +8,7 @@ function getUser() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        localStorage.setItem("user_id",`${data.user_id}`)
+        localStorage.setItem("user_id",`${data.data.user_id}`)
         
         let product_container = document.querySelector("#user-info");
         product_container.innerHTML = "";
@@ -24,22 +24,7 @@ function getUser() {
                 <p class = "user_phone"> Phone Number: ${data.data.phone_number}</p>
                 <p class = "user_phone"> email address: ${data.data.user_email}</p>
               </div>
-              <div class="delete">
-                <input id="updatename" type="text" placeholder="Edit first name" />
-                <button class="search-btn" onclick="updateName()" type="submit">Update</button>
-                <input id="updatelastname" type="text" placeholder="Edit last name" />
-                <button class="search-btn" onclick="updatelastName()" type="submit">Update</button>
-                <input id="updateusername" type="text" placeholder="Edit username" />
-                <button class="search-btn" onclick="updateUsername()" type="submit">Update</button>
-                <input id="updatepassword" type="text" placeholder="Edit password" />
-                <button class="search-btn" onclick="updatePassword()" type="submit">Update</button>
-                <input id="searchTerm" type="text" placeholder="Edit phone number" />
-                <button class="search-btn" onclick="searchForProducts()" type="submit">Update</button>
-                <input id="searchTerm" type="text" placeholder="Edit user email" />
-                <button class="search-btn" onclick="searchForProducts()" type="submit">Update</button>
-                <button onclick="deleteUser()"> delete user</button>
-
-              </div>
+              
                 
             </div>
            `;
@@ -79,6 +64,14 @@ function updateName(){
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      if (data["status_code"] == 200) {
+        alert("Updated successfuly");
+        location.reload();
+      } else {
+        alert("Did not update something went wrong");
+        
+      }
+      
     
     });
 }
@@ -97,6 +90,13 @@ function updatelastName(){
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      if (data["status_code"] == 200) {
+        alert("Updated successfuly");
+        location.reload();
+      } else {
+        alert("Did not update something went wrong");
+        
+      }
     
     });
 }
@@ -115,6 +115,13 @@ function updateUsername(){
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      if (data["status_code"] == 200) {
+        alert("Updated successfuly");
+        location.reload();
+      } else {
+        alert("Did not update something went wrong");
+        
+      }
     
     });
 }
@@ -132,11 +139,18 @@ function updatePassword(){
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      if (data["status_code"] == 200) {
+        alert("Updated successfuly");
+        location.reload();
+      } else {
+        alert("Did not update something went wrong");
+        
+      }
     
     });
 }
 
-function updateName(){
+function updatepnoneNumber(){
   fetch("https://still-brushlands-23193.herokuapp.com/update-user/"+`${localStorage.getItem("user_id")}/`, {
       method: "PUT",
       
@@ -144,15 +158,48 @@ function updateName(){
         "Content-type": "application/json",
       },
       body: JSON.stringify({
-        first_name: document.querySelector("#updatename").value,
+        phone_number: document.querySelector("#updatephonenumber").value,
       }),
     })
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
+      if (data["status_code"] == 200) {
+        alert("Updated successfuly");
+        location.reload();
+      } else {
+        alert("Did not update something went wrong");
+        
+      }
     
     });
 }
+
+function updateuserEmail(){
+  fetch("https://still-brushlands-23193.herokuapp.com/update-user/"+`${localStorage.getItem("user_id")}/`, {
+      method: "PUT",
+      
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        user_email: document.querySelector("#updateuseremail").value,
+      }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      if (data["status_code"] == 200) {
+        alert("Updated successfuly");
+        location.reload();
+      } else {
+        alert("Did not update something went wrong");
+        
+      }
+    
+    });
+}
+
 
 function logOut(){
   localStorage.clear()

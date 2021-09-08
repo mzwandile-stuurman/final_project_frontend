@@ -153,3 +153,35 @@ function logOut(){
   window.location.href = "./index.html";
 }
 
+// seaarch for jeans
+function filteredProducts() {
+  let searchTerm = "jean";
+  console.log(searchTerm);
+  console.log(products);
+  let searchedProducts = products.filter((product) => 
+    product.product_type.toLowerCase().includes(searchTerm.toLowerCase())
+  
+  );
+  console.log(searchedProducts);
+  make_products(searchedProducts);
+
+}
+// function to search for shoes
+function filteredShoes() {
+  let searchTerm = "shoe";
+  console.log(searchTerm);
+  console.log(products);
+  let searchedProducts = products.filter((product) => 
+    product.product_type.toLowerCase().includes(searchTerm.toLowerCase())
+  
+  );
+  console.log(searchedProducts);
+  make_products(searchedProducts);
+
+}
+
+// function to refresh page
+function showAll(){
+  location.reload();
+}
+

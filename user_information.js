@@ -66,7 +66,7 @@ function deleteUser(){
 }
 
 function updateName(){
-  fetch("https://still-brushlands-23193.herokuapp.com/update-user/"+`${localStorage.getItem("user_id")}`, {
+  fetch("https://still-brushlands-23193.herokuapp.com/update-user/"+`${localStorage.getItem("user_id")}/`, {
       method: "PUT",
       
       headers: {
@@ -84,7 +84,7 @@ function updateName(){
 }
 
 function updatelastName(){
-  fetch("https://still-brushlands-23193.herokuapp.com/update-user/"+`${localStorage.getItem("user_id")}`, {
+  fetch("https://still-brushlands-23193.herokuapp.com/update-user/"+`${localStorage.getItem("user_id")}/`, {
       method: "PUT",
       
       headers: {
@@ -102,7 +102,7 @@ function updatelastName(){
 }
 
 function updateUsername(){
-  fetch("https://still-brushlands-23193.herokuapp.com/update-user/"+`${localStorage.getItem("user_id")}`, {
+  fetch("https://still-brushlands-23193.herokuapp.com/update-user/"+`${localStorage.getItem("user_id")}/`, {
       method: "PUT",
       
       headers: {
@@ -137,7 +137,7 @@ function updatePassword(){
 }
 
 function updateName(){
-  fetch("https://still-brushlands-23193.herokuapp.com/update-user/"+`${localStorage.getItem("user_id")}`, {
+  fetch("https://still-brushlands-23193.herokuapp.com/update-user/"+`${localStorage.getItem("user_id")}/`, {
       method: "PUT",
       
       headers: {

@@ -258,3 +258,10 @@
   #cart.active {
     left: 0;
   }
+
+  .filters{
+    display: flex;
+    justify-content: center;
+    gap:10px;
+    margin-top: 10px;
+  }

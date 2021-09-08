@@ -6,14 +6,14 @@ function renderCart(cartItems) {
     if (cartItems.length > 0) {
       cartItems.map((cartItem) => {
         cartContainer.innerHTML += `
-        <div class = "products">
-              <img src="${cartItem.image}" class = "product-image">
-              <div class = "product-content"> 
-                  <h4 class = "product-title"> ${cartItem.product_name}</h4>
-                  <p class = "product-description"> ${cartItem.brand}</p>
-                  <p class = "product-price">R${cartItem.price} </p>
-                  <button class ="revome_cart" onclick="removeItem(${cartItem.prod_id})">Remove item</button>
-              </div>
+        <div class = "products">  
+          <div class = "product-content"> 
+            <img src="${cartItem.image}" class = "product-image">
+            <h4 class = "product-title"> ${cartItem.product_name}</h4>
+            <p class = "product-description"> ${cartItem.brand}</p>
+            <p class = "product-price">R${cartItem.price} </p>
+            <button class ="revome_cart" onclick="removeItem(${cartItem.prod_id})">Remove item</button>
+          </div>
               
           </div>
         

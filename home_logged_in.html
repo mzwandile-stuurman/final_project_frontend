@@ -52,12 +52,22 @@
     <!-- ==== Intro Section Start ==== -->
 	</header>
 	<section>
+		<div class="filters">
 
-		<input id="searchTerm" type="text" placeholder="Search.." />
-      	<button class="search-btn" onclick="searchForProducts()" type="submit">
-
-        	<i class="fas fa-search-location"></i>
-      	</button>
+			<input id="searchTerm" type="text" placeholder="Search.." />
+      		<button class="search-btn" onclick="searchForProducts()" type="submit">
+		  
+	
+				<i class="fas fa-search-location"></i>
+		  	</button>
+		  	<button onclick="showAll()" class="all">ALL</button>
+	
+		  	<button onclick="filteredProducts()" class="filter-jean">JEAN</button>
+		  	<button onclick="filteredShoes()" class="filter-shoes">SHOE</button>
+		</div>
+	  </section>
+	<section>
+		
 		<div id="products-container"></div>
 		<div id="cart"><p>You have no items in the cart</p></div>
 	</section>

@@ -1,5 +1,5 @@
 let storedCartitems = JSON.parse(localStorage.getItem("cart") || "[]");
-function showCart(){
+function showCart(CartItems){
 
     if (storedCartitems.length > 0) {
 
@@ -24,7 +24,6 @@ function showCart(){
 
                 <div class="cart-btns">
                     <button class ="revome_cart" onclick="removeItem(${product.prod_id})">Remove item</button>
-                    <button class="checkout-button" onlcick="">Checkout</button>
                     </div>
 
                 <div class="quantity-container">
@@ -36,20 +35,72 @@ function showCart(){
             
         </div>
             
-          
-
-  
             
         `;
         });
     }else{
-        product_container.innerHTML = "<h2> No items in cart</h2>";
+        document.querySelector("#cart-items").innerHTML = "<h2> No items to purchase</h2>";
 
     }
 }
-showCart();
+showCart(storedCartitems);
 
 function logOut(){
     localStorage.clear()
     window.location.href = "./index.html";
+}
+
+// remove from cart\
+function removeItem(id) {
+    storedCartitems = storedCartitems.filter(item => item.prod_id != id)
+    showCart(storedCartitems);
+    localStorage.setItem('cart', JSON.stringify(storedCartitems))
+}
+
+function logOut(){
+  localStorage.clear()
+  window.location.href = "./index.html";
+}
+
+
+// function to increement cart value 
+function incrementValue()
+{
+    var value = parseInt(document.getElementById('number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    if(value<10){
+        value++;
+            document.getElementById('number').value = value;
+    }
+}
+
+// function to decrement cart
+function decrementValue()
+{
+    var value = parseInt(document.getElementById('number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    if(value>1){
+        value--;
+            document.getElementById('number').value = value;
+    }
+
+}
+
+function checkOut(){
+    let cart2 = JSON.parse(localStorage.getItem('cart'))
+    fetch("https://still-brushlands-23193.herokuapp.com/orders/", {
+    method: "POST",
+    body: JSON.stringify({
+      product_image: cart2[0]['image'],
+      order_number: localStorage.getItem("user_id"),
+      product_name: cart2[0]['product_name']
+      
+    }),
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+
+
+
 }

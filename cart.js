@@ -60,7 +60,9 @@ function toggleCart() {
 // remove from cart\
 function removeItem(id) {
     storedCartitems = storedCartitems.filter(item => item.prod_id != id)
+    console.log(storedCartitems);
     renderCart(storedCartitems);
+
     localStorage.setItem('cart', JSON.stringify(storedCartitems))
 }
 

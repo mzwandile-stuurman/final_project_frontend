@@ -94,9 +94,9 @@ function toggleCart() {
 function searchForProducts() {
   let searchTerm = document.querySelector("#searchTerm").value;
   console.log(searchTerm);
-  console.log(products.data);
-  let searchedProducts = products.data.filter((product) =>
-    product.product_name.toLowerCase().startsWith(searchTerm.toLowerCase())
+  console.log(products);
+  let searchedProducts = products.filter((product) =>
+    product.product_type.toLowerCase().startsWith(searchTerm.toLowerCase())
   );
   console.log(searchedProducts);
   make_products(searchedProducts);

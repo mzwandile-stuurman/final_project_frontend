@@ -13,6 +13,7 @@
     overflow-x: hidden;
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
+    display: grid;
   }
 
   .image-logo{
@@ -220,7 +221,9 @@
 /* Add padding to container elements */
 .form-div{
 display: flex;
-align-content: center; 
+align-self: center;
+margin-bottom: 40px;
+place-self: center;
 }
 .container{
   padding: 20px;
@@ -241,7 +244,8 @@ input[type=text], input[type=password] {
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
-  background: #f7f7f7;
+  background: #3b4148;
+  border-radius:10px;
 	font-family: Montserrat,Arial, Helvetica, sans-serif;
 }
 select {
@@ -272,7 +276,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=phone]:focus, sel
 
 /* Set a style for all buttons */
 button {
-  background-color: #0eb7f4;
+  background-color: #ea4c88;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -318,7 +322,7 @@ footer{
 }
 footer::before{
   content: '';
-  position: absolute;
+ 
   left: 0;
   top: 100px;
   height: 1px;

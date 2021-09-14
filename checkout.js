@@ -111,13 +111,15 @@ let userId = localStorage.getItem("user_id");
 console.log(userId);
 
 function checkOut(){
-    let cart2 = JSON.parse(localStorage.getItem('cart'))
+    
     if (userId===null ){
       alert("Please log in first to check out")
       window.location.href = "./login_page.html";
 
-    }else if(storedCartitems==='[]'){
+    }else if(storedCartitems.length == 0){
       alert("Add items to cart")
+      window.location.href = "./cart.html";
+
 
     }else{
       fetch("https://still-brushlands-23193.herokuapp.com/shipping/", {
@@ -154,3 +156,15 @@ function checkOut(){
     }
 
 }
+
+function logOut(){
+  localStorage.clear()
+  window.location.href = "./index.html";
+}
+
+function CarttoBackEnd(){
+  let cart2 = JSON.parse(localStorage.getItem('cart'))
+  
+
+}
+

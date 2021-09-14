@@ -7,6 +7,10 @@
   <title>Document</title>
   <link rel="stylesheet" href="./checkout-style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script
+      src="https://kit.fontawesome.com/6008c27e6e.js"
+      crossorigin="anonymous"
+    ></script>
 </head>
 <body>
   <header>
@@ -48,23 +52,27 @@
   <div class="row">
     <div class="col-75">
       <div class="container">
-        <form action="/action_page.php">
+        <form onsubmit="event.preventDefault(), checkOut()">
       
           <div class="row">
             <div class="col-50">
               <h3>Billing Address</h3>
-              <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-              <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+              <label for="fname"><i class="fa fa-user"></i>Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="John">
+              <label for="fname"><i class="fa fa-user"></i>Last Name</label>
+              <input type="text" id="sname" name="firstname" placeholder="Doe">
+              <label for="adr"><i class=" fa fa-address-card-o"></i> Address</label>
+              <input type="text" id="adr" name="email" placeholder="542 W. 15th Street">
               <label for="email"><i class="fa fa-envelope"></i> Email</label>
-              <input type="text" id="email" name="email" placeholder="john@example.com">
-              <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-              <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+              <input type="text" id="email" name="address" placeholder="john@example.com">
               <label for="city"><i class="fa fa-institution"></i> City</label>
-              <input type="text" id="city" name="city" placeholder="New York">
+              <input type="text" id="city" name="city" placeholder="Enter City">
+              <label for="city"><i class="fa fa-institution"></i> Province</label>
+              <input type="text" id="province" name="city" placeholder="Enter Province">
 
               <div class="row">
                 <div class="col-50">
-                  <label for="state">State</label>
+                  <label for="state">Country</label>
                   <input type="text" id="state" name="state" placeholder="NY">
                 </div>
               <div class="col-50">

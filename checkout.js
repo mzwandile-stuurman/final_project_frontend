@@ -1,4 +1,25 @@
 let storedCartitems = JSON.parse(localStorage.getItem("cart") || "[]");
+
+
+function getUser() {
+    fetch("https://still-brushlands-23193.herokuapp.com/user-info/"+`${localStorage.getItem("password")}`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        localStorage.setItem("user_id",`${data.data.user_id}`)
+        
+      });
+     
+}
+
+getUser();
+
+
 function showCart(CartItems){
 
     if (storedCartitems.length > 0) {
@@ -86,21 +107,50 @@ function decrementValue()
 
 }
 
+let userId = localStorage.getItem("user_id");
+console.log(userId);
+
 function checkOut(){
     let cart2 = JSON.parse(localStorage.getItem('cart'))
-    fetch("https://still-brushlands-23193.herokuapp.com/orders/", {
+    if (userId===null ){
+      alert("Please log in first to check out")
+      window.location.href = "./login_page.html";
+
+    }else if(storedCartitems==='[]'){
+      alert("Add items to cart")
+
+    }else{
+      fetch("https://still-brushlands-23193.herokuapp.com/shipping/", {
     method: "POST",
     body: JSON.stringify({
-      product_image: cart2[0]['image'],
-      order_number: localStorage.getItem("user_id"),
-      product_name: cart2[0]['product_name']
+      recipient_name: document.getElementById("fname"),
+      recipient_lastname: document.getElementById("sname"),
+      recipient_address: document.getElementById("adr"),
+      recipient_email: document.getElementById("email"),
+      city: document.getElementById("city"), 
+      province: document.getElementById("province"),
+      country: document.getElementById("country"),
+      postal_code: document.getElementById("zip"),
+      user_id: localStorage.getItem("user_id"),
+      
       
     }),
     headers: {
       "Content-type": "application/json",
     },
-  })
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        if (data["status_code"] == 201) {
+          alert("Thank you for purchasing. You will be contacted about your order.");
+          window.location.href = "./home_logged_in.html";
+        } else {
+          alert("Sorry something went wrong.");
+          
+        }
+    });
 
-
+    }
 
 }

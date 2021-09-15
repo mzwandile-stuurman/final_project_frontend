@@ -59,6 +59,8 @@ function showCart(CartItems){
             
         `;
         });
+        let totalPrice = storedCartitems.reduce((total, item) => total + item.price, 0);
+        product_container.innerHTML += `<h3> Your total is: ${totalPrice} </h3>`;
     }else{
         document.querySelector("#cart-items").innerHTML = "<h2> No items to purchase</h2>";
 
@@ -163,7 +165,28 @@ function logOut(){
 }
 
 function CarttoBackEnd(){
-  let cart2 = JSON.parse(localStorage.getItem('cart'))
+  let cart2 = JSON.parse(localStorage.getItem('cart'));
+  if(cart2.length >= 0 ){
+    for(let i = 0; i <= cart2.length; i++){
+      fetch("https://still-brushlands-23193.herokuapp.com/shipping/", {
+    method: "POST",
+    body: JSON.stringify({
+      product_image: cart2[i]['image'],
+      order_number: localStorage.getItem("user_id"),
+      product_name: cart2[i]['product_name'],
+      total_price: cart2[i]['price'],
+      product_quantity: document.getElementById("number").value, 
+      
+    }),
+    headers: {
+      "Content-type": "application/json",
+    },
+    })
+    
+    }
+
+    
+  }
   
 
 }

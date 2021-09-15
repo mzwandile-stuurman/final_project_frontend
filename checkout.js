@@ -182,7 +182,12 @@ function CarttoBackEnd(){
       "Content-type": "application/json",
     },
     })
-    
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        
+    });
+
     }
 
     
@@ -190,4 +195,6 @@ function CarttoBackEnd(){
   
 
 }
+
+
 
